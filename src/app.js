@@ -2,10 +2,60 @@
 import "bootstrap";
 import "./style.css";
 
-import "./assets/img/rigo-baby.jpg";
-import "./assets/img/4geeks.ico";
+// funcion que al cargar la ventana genera un numero random y palo (suit) random
+window.onload = () => {
+  document.querySelector(".number").innerHTML = generateRandomNumber(); //num random
 
-window.onload = function() {
-  //write your code here
-  console.log("Hello Rigo from the console!");
+  // el if sirve para poner el color rojo si es corazon o rombo
+  // doc.query selecciona el top y botom palo del html y add con innerhtml el simbolo random que generamos abajo
+  if (randomSimbolo == "♥" || randomSimbolo == "♦") {
+    document.querySelector(".top-suit").innerHTML = randomSimbolo;
+    document.querySelector(".top-suit").style.color = "red";
+    document.querySelector(".bottom-suit").innerHTML = randomSimbolo;
+    document.querySelector(".bottom-suit").style.color = "red";
+  } else {
+    document.querySelector(".top-suit").innerHTML = randomSimbolo;
+    document.querySelector(".top-suit").style.color = "black";
+    document.querySelector(".bottom-suit").innerHTML = randomSimbolo;
+    document.querySelector(".bottom-suit").style.color = "black";
+  }
 };
+
+// funcion que genera numero random, con un array , hacemos un random al indice
+// para que elija aleatoriamente uno de esos numeros del AS al REY
+let generateRandomNumber = () => {
+  let numbers = [
+    "A",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8",
+    "9",
+    "10",
+    "J",
+    "Q",
+    "K"
+  ];
+  let iNumbers = Math.floor(Math.random() * numbers.length);
+  return numbers[iNumbers];
+};
+
+// aqui similar al random de arriba, con array, hacemos un random al indice que elige palo
+let generateRandomsimbolo = () => {
+  let suit = ["♦", "♥", "♠", "♣"];
+  let iSuit = Math.floor(Math.random() * suit.length);
+  return suit[iSuit];
+};
+
+// esta variable randomsimbolo es para que nos genere el mismo palo arriba y abajo
+// ya que si llamamos 2 veces a la funcion en el window.onload, nos carga distintos palos
+let randomSimbolo = generateRandomsimbolo();
+
+// mejoras pendientes:
+// 1. cambiar fondo
+// 2. poner boton que cambie carta al hacer click
+// 3. cambiar carta cada X (10?¿) segundos
+// 4. Permitir que el usuario cambie tamaño de carta a traves de inputs
