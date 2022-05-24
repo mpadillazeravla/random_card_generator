@@ -56,14 +56,10 @@ window.onload = () => {
   }
 };
 
-// mejoras pendientes:
-
-// 4. Permitir que el usuario cambie tamaño de carta a traves de inputs
-
-// boton PULSA PARA CAMBIAR CARTA //
+// boton "PULSA PARA CAMBIAR CARTA" //
 document.getElementById("botongo").addEventListener("click", window.onload);
 
-// BOTON CUENTA ATRAS //
+// boton "CUENTA ATRAS" //
 document.getElementById("botonCountdown").addEventListener("click", countdown);
 
 function countdown() {
@@ -85,3 +81,22 @@ function countdown() {
 // AÑADIENDO EN EL BOTTON EN EL HTML LO SIGUIENTE:
 
 // onclick="setTimeout('window.onload()',3000);"
+
+// funcion para cambiar el tamaño de la carta:
+let boton = document.getElementById("sizeboton");
+
+boton.addEventListener("click", () => {
+  let input1 = document.getElementById("inputnumber1");
+  let input2 = document.getElementById("inputnumber2");
+  let valorheight = input1.value;
+  let valorwidth = input2.value;
+  document.querySelector(".card").style.height = `${valorheight}px`;
+  document.querySelector(".card").style.width = `${valorwidth}px`;
+});
+
+// funcion para restablecer el tamaño original
+let botonrestablecer = document.getElementById("restablecer");
+botonrestablecer.addEventListener("click", () => {
+  document.querySelector(".card").style.height = `400px`;
+  document.querySelector(".card").style.width = `250px`;
+});
