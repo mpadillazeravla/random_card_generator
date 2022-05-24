@@ -1,8 +1,12 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 
 body {
-  background: #0e7e12;
+  background-image: url("/media/lasvegas.jpg");
+  background-position: center;
   box-sizing: border-box;
+  background-color: black;
+  object-fit: fill;
+  background-size: cover;
 }
 
 .card {
@@ -40,4 +44,30 @@ body {
   font-size: 80px;
   top: 130px;
   left: 100px;
+}
+
+.btn {
+  background: #f7ff00;
+  background-image: -webkit-linear-gradient(top, #f7ff00, #b82b2b);
+  background-image: -moz-linear-gradient(top, #f7ff00, #b82b2b);
+  background-image: -ms-linear-gradient(top, #f7ff00, #b82b2b);
+  background-image: -o-linear-gradient(top, #f7ff00, #b82b2b);
+  background-image: linear-gradient(to bottom, #f7ff00, #b82b2b);
+  -webkit-border-radius: 28;
+  -moz-border-radius: 28;
+  border-radius: 28px;
+  text-shadow: 0px 1px 3px #666666;
+  -webkit-box-shadow: 0px 4px 3px #666666;
+  -moz-box-shadow: 0px 4px 3px #666666;
+  box-shadow: 0px 4px 3px #666666;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 16px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background: #3c7bfa;
+  text-decoration: none;
 }
