@@ -36,6 +36,9 @@ window.onload = () => {
   // esta variable randomsimbolo es para que nos genere el mismo palo arriba y abajo
   // ya que si llamamos 2 veces a la funcion en el window.onload, nos carga distintos palos
   let randomSimbolo = generateRandomsimbolo();
+
+  // Aqui ya introducimos los valores
+
   document.querySelector(".number").innerHTML = generateRandomNumber(); //num random
 
   // el if sirve para poner el color rojo si es corazon o rombo
@@ -55,7 +58,30 @@ window.onload = () => {
 
 // mejoras pendientes:
 
-// 3. cambiar carta cada X (10?¿) segundos
 // 4. Permitir que el usuario cambie tamaño de carta a traves de inputs
 
+// boton PULSA PARA CAMBIAR CARTA //
 document.getElementById("botongo").addEventListener("click", window.onload);
+
+// BOTON CUENTA ATRAS //
+document.getElementById("botonCountdown").addEventListener("click", countdown);
+
+function countdown() {
+  let segundos = 3;
+  const botonCuentaatras = document.getElementById("botonCountdown");
+  botonCuentaatras.textContent = segundos;
+  const cuenta = setInterval(function() {
+    segundos--;
+    botonCuentaatras.textContent = segundos;
+    if (segundos === 0) {
+      window.onload();
+      botonCuentaatras.textContent = "CUENTA ATRÁS";
+      clearInterval(cuenta);
+    }
+  }, 1000);
+}
+
+// PARA EL BOTON QUE CAMBIE A LOS X SEGUNDOS TAMBIÉN SE PUEDE HACER MAS FACIL
+// AÑADIENDO EN EL BOTTON EN EL HTML LO SIGUIENTE:
+
+// onclick="setTimeout('window.onload()',3000);"

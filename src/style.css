@@ -46,7 +46,8 @@ body {
   left: 100px;
 }
 
-.btn {
+.btn,
+label {
   background: #f7ff00;
   background-image: -webkit-linear-gradient(top, #f7ff00, #b82b2b);
   background-image: -moz-linear-gradient(top, #f7ff00, #b82b2b);
